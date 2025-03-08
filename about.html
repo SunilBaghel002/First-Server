@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First HTML</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: center ;
+            gap: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            width: 100vw;
+            background-color: rgb(3, 3, 80);
+            padding: 10px;
+        }
+        nav a{
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover{
+            color: blue;
+        }
+        .container{
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/service">Services</a>
+    </nav>
+    <div class="container">
+        <h1>About our Comapany</h1>
+    </div>
+</body>
+</html>

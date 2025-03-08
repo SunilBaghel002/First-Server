@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Found</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        color: whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+      }
+      .container {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      .color {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      .box {
+        width: 60px;
+        height: 30px;
+        cursor: pointer;
+        border: 1px solid white;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+      }
+      .box:hover {
+        opacity: 0.7;
+      }
+      .red {
+        background-color: red;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .random {
+        padding: 4px;
+        width: 100px;
+        /* height: 50px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Error 404!!</h1>
+      <p>Page not found</p>
+      <div class="color">
+        <div class="red box"></div>
+        <div class="green box"></div>
+        <div class="blue box"></div>
+        <div class="random box">Random</div>
+      </div>
+    </div>
+    <script>
+      const h1Element = document.querySelector("h1");
+      const pElement = document.querySelector("p");
+      const randombutton = document.querySelector(".random");
+      document.querySelector(".red").addEventListener("click", () => {
+        h1Element.style.color = "red";
+        pElement.style.color = "red";
+      });
+      document.querySelector(".green").addEventListener("click", () => {
+        h1Element.style.color = "green";
+        pElement.style.color = "green";
+      });
+      document.querySelector(".blue").addEventListener("click", () => {
+        h1Element.style.color = "blue";
+        pElement.style.color = "blue";
+      });
+      function getRandomColor() {
+        let var1 = Math.floor(Math.random() * 255 + 0);
+        let var2 = Math.floor(Math.random() * 255 + 0);
+        let var3 = Math.floor(Math.random() * 255 + 0);
+        return `rgb(${var1}, ${var2}, ${var3})`;
+      }
+      randombutton.addEventListener("click", () => {
+        h1Element.style.color = getRandomColor();
+        pElement.style.color = getRandomColor();
+        randombutton.style.backgroundColor = getRandomColor();
+        // randombutton.style.color = getRandomColor();
+      });
+    </script>
+  </body>
+</html>
