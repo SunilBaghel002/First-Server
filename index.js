@@ -1,44 +1,24 @@
-// const http = require("http");
-// const fs=require('fs')
-// const port = process.env.PORT || 3000;
-// const server = http.createServer((req, res) => {
-  
-//   res.setHeader("Content-Type", "text/html");
-//   console.log(req.url)
-//   if(req.url=="/"){
-//     res.statusCode = 200;
-//     const data=fs.readFileSync('index.html')
-//     res.end(data.toString());
-//   }
-  
-//   else if(req.url=="/about"){
-//     res.statusCode = 200;
-//     const data=fs.readFileSync('about.html')
-//     res.end(data.toString());
-//   }
-//   else if(req.url=="/service"){
-//     res.statusCode = 200;
-//     const data=fs.readFileSync('services.html')
-//     res.end(data.toString());
-//   }
-//   else{
-//     // res.sunil() ./
-//     res.statusCode=404
-//     const data=fs.readFileSync('notfound.html')
-//     res.end(data.toString());
-//   }
-// });
-// server.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
-const express = require('express')
-const app = express()
-const port = 3000
+const fs = require("fs");
+const express = require("express");
+const path = require("path");
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
+app.get("/", (req, res) => {
+  const data = fs.readFileSync("index.html");
+  res.send(data.toString());
+});
+app.get("/about", (req, res) => {
+  const data = fs.readFileSync("about.html");
+  res.send(data.toString());
+});
+app.get("/service", (req, res) => {
+  const data = fs.readFileSync("services.html");
+  res.send(data.toString());
+});
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "notfound.html"));
+});
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Server listening on port ${port}`);
+});
